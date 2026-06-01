@@ -1,0 +1,10 @@
+numpy
+pandas
+seaborn
+matplotlib
+plotly
+scipy
+scikit-learn
+xgboost
+tensorflow==2.15
+keras

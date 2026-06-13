@@ -54,26 +54,26 @@ Trabajo individual por falta de pareja.
 Dado los datos de arriba se pide averiguar la variable 'is_canceled', a partir del resto de datos.
 
 ## Análisis exploratorio de datos
-Nos encontramos con unos datos estructurados en 31 columnas, de las cuales, la segunda, 'is_canceled' es la que hay que predecir a partir del resto. Nos encontramos con columnas de tipo string, int y float. Debido a la presencia de columnas con formato string debemos usar el metodo get_dumies de la libreria Pandas. Separaremos los datos en 4 conjuntos dos de prueba y dos de entrenamiento. Dentro de ambos se dividiran en la columna 'is_canceled' como y, y el resto de columnas como X. 
+Nos encontramos con unos datos estructurados en 31 columnas, de las cuales, la segunda, `is_canceled` es la que hay que predecir a partir del resto. Nos encontramos con columnas de tipo string, int y float. Debido a la presencia de columnas con formato string debemos usar el metodo get_dumies de la libreria Pandas. Separaremos los datos en 4 conjuntos dos de prueba y dos de entrenamiento. Dentro de ambos se dividiran en la columna `is_canceled` como y, y el resto de columnas como X. 
 
 ## Diseño del sistema
-Previamente debemos instalar un entorno virtual con 'python -m venv nombre_entorno', activarlo usando elcomando 'nombre_entorno\Scripts\activate' y una vez hecho eso debemos instalar las librerias especificadas en el requirements.txt con 'pip install -r requirements.txt'. Es importante trabajar con una version de Python inferior o igual a la 3.11.9.
+Previamente debemos instalar un entorno virtual con `python -m venv nombre_entorno`, activarlo usando elcomando `nombre_entorno\Scripts\activate` y una vez hecho eso debemos instalar las librerias especificadas en el requirements.txt con `pip install -r requirements.txt`. Es importante trabajar con una version de Python inferior o igual a la 3.11.9.
 He dividido el trabajo en una carpeta Logica por un lado, en la que se enecuentran los modulos, con sus respectivas funciones del mismo nombre:
-+ procesamiento_datos que se encarga de procesar los datos y dividirlos con train_test_split y retorna X_train, X_test, y_train, y_test.
-+ modelos que se encarga de llamar a los 5 modelos:
-    + Arbol de decisiones
-    + Clasificacion binaria
-    + Random forest
-    + XGBC
-    + Red neuronal multicapa
-+ evaluacion, encargada de calcular las metricas y mostrar una matriz de confusion y la curva de roc, devuelve las 5 metricas:
-    + accuracy
-    + precision
-    + recall
-    + f1-score
-    + auc
-+ comparacion, que tras agregarse en formato diccionario enl main a una lista cada uno de las metricas de los modelos, compara estas y devuelve el nombre de la que tiene valores mas altos.
-+ main se encarga de llamar a todos los modulos y sus respectivas funciones, es el que se ejecuta.
++ **procesamiento_datos** que se encarga de procesar los datos y dividirlos con train_test_split y retorna X_train, X_test, y_train, y_test.
++ **modelos** que se encarga de llamar a los 5 modelos:
+    + **arbol de decisiones**
+    + **clasificacion binaria**
+    + **random forest**
+    + **xbgc**
+    + **red neuronal multicapa**
++ **evaluacion**, encargada de calcular las metricas y mostrar una matriz de confusion y la curva de roc, devuelve las 5 metricas:
+    + **accuracy**
+    + **precision**
+    + **recall**
+    + **f1-score**
+    + **auc**
++ **comparacion**, que tras agregarse en formato diccionario enl main a una lista cada uno de las metricas de los modelos, compara estas y devuelve el nombre de la que tiene valores mas altos.
++ **main** se encarga de llamar a todos los modulos y sus respectivas funciones, es el que se ejecuta.
 
 ## Resultados y eleccion final
 La que mejores resultados me ha dado es la red neuronal multicapa, por tanto esa seria mi elección.

@@ -10,10 +10,29 @@ from sklearn.metrics import (
 )
 import matplotlib.pyplot as plt
 def evaluacion(y_test, y_pred, y_proba ,list_nombres_clases):
+    """
+        Args:
+            - y_test: Conjunto de datos de prueba.
+            - y_pred: Predicciones sobre los datos de prueba.
+            - y_proba: Probabilidad de pertenecer a la primera clase de cada predicción. 
+            - list_nombres_clases: Nombre de las posibles clase de la predicción. 
+        Return:
+            - acc: La accuracy_score.
+            - prec: El precision_score.
+            - rec: El recall_score.
+            - f1: El f1_score.
+            - auc: El roc_auc_score.
+    """
+    """
+        Creamos y mostramos una matriz de confusión.
+    """
     cm = confusion_matrix(y_test, y_pred)
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=list_nombres_clases)
     disp.plot()
     plt.show()
+    """
+        Calculamos las diferentes métricas y las mostramos por pantalla.
+    """
     acc = accuracy_score(y_test, y_pred)
     prec = precision_score(y_test, y_pred, average="weighted")
     rec = recall_score(y_test, y_pred, average="weighted")
@@ -24,6 +43,9 @@ def evaluacion(y_test, y_pred, y_proba ,list_nombres_clases):
     print(f"Recall:    {rec:.2f}")
     print(f"F1-Score:  {f1:.2f}")
     print(f"AUC:       {auc:.2f}\n")
+    """
+        Creamos y mostramos la curva de ROC.
+    """
     fpr, tpr, thresholds = roc_curve(y_test, y_proba)
     plt.plot(fpr, tpr, label=f'AUC = {auc:.2f}')
     plt.plot([0, 1], [0, 1], linestyle='--', color='grey')
